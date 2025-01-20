@@ -9,6 +9,10 @@ from huggingface_hub import hf_hub_download
 import io
 import openpyxl
 import xlsxwriter
+import os
+
+Username = os.getenv('USERNAME')
+Token = os.getenv('TOKEN')
 
 st.set_page_config(
     page_title="MWEs Prediction App",
@@ -46,8 +50,8 @@ class RoBertaCRFModel(nn.Module):
 # Load tokenizer and model from Hugging Face
 @st.cache_resource
 def load_model_and_tokenizer():
-    model_repo = USERNAME  # Replace with your Hugging Face repo ID
-    token = TOKEN  # Replace with your token
+    model_repo = Username  # Replace with your Hugging Face repo ID
+    token = Token  # Replace with your token
 
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_repo, use_auth_token=token)
