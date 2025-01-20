@@ -1,1 +1,6 @@
-
+streamlit
+torch
+transformers
+pytorch-crf
+openpyxl
+xlsxwriter
