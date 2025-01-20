@@ -190,7 +190,7 @@ with st.sidebar:
 
 # Navigate based on session state
 if st.session_state["page"] == "Sentence Prediction":
-    st.title("✍️ MWE Detection with RoBERTa-CRF")
+    st.title("✍️ MWEs Detection with RoBERTa-CRF")
     st.write(
         """
         This app detects **Multi-Word Expressions (MWEs)** in a sentence using a fine-tuned 
@@ -243,7 +243,7 @@ if st.session_state["page"] == "Sentence Prediction":
         st.markdown("---")
 
 elif st.session_state["page"] == "Excel File Prediction":
-    st.title("📄 MWE Detection on Excel File")
+    st.title("📄 MWEs Detection on Excel File")
     st.write(
         """
         This app detects **Multi-Word Expressions (MWEs)** in an excel file using a fine-tuned 
