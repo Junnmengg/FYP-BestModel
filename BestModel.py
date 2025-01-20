@@ -46,8 +46,8 @@ class RoBertaCRFModel(nn.Module):
 # Load tokenizer and model from Hugging Face
 @st.cache_resource
 def load_model_and_tokenizer():
-    model_repo = 'Junmengg/FYP-RoBERTa-CRF'  # Replace with your Hugging Face repo ID
-    token = "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"  # Replace with your token
+    model_repo = USERNAME  # Replace with your Hugging Face repo ID
+    token = TOKEN  # Replace with your token
 
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_repo, use_auth_token=token)
