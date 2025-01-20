@@ -261,8 +261,14 @@ elif st.session_state["page"] == "Excel File Prediction":
             st.error("The uploaded file must contain a 'Sentence' column.")
         else:
             detected_mwes = []
+            predicted_labels = []
+
             for sentence in df["Sentence"]:
                 table_data, mwes = perform_mwe_detection(str(sentence).lower(), model, tokenizer)
+
+                # Extract predictions for the sentence
+                labels = [entry["Prediction"] for entry in table_data]
+                predicted_labels.append(", ".join(labels))  # Join labels with commas
 
                 # Process MWEs into desired format
                 if not mwes:
@@ -272,7 +278,8 @@ elif st.session_state["page"] == "Excel File Prediction":
                 else:
                     detected_mwes.append(", ".join(mwes))  # Multiple MWEs -> Comma-separated
 
-            # Add Detected MWEs column to the DataFrame
+            # Add Predicted Labels and Detected MWEs columns to the DataFrame
+            df["Predicted Labels"] = predicted_labels
             df["Detected MWEs"] = detected_mwes
 
             # Display the updated DataFrame
